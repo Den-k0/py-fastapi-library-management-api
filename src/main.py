@@ -34,7 +34,7 @@ def create_author(
     db_author = crud.get_author_by_name(db=db, name=author.name)
     if db_author:
         raise HTTPException(
-            status_code=400,
+            status_code=409,
             detail="Such name for Author already exists"
         )
     return crud.create_author(db=db, author=author)
